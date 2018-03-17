@@ -59,7 +59,8 @@
 			"post-install": [
 				"echo \"flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare\" > /app/bin/flare.sh",
 				"chmod +x /app/bin/flare.sh",
-				"desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop"
+				"desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop",
+				"sed -i 's|org.flarerpg.Flare|org.flarerpg.Flare.desktop|g' /app/share/appdata/org.flarerpg.Flare.appdata.xml"
 			]
 		},
 		{
