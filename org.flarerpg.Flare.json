@@ -29,8 +29,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/clintbellanger/flare-engine/archive/v1.04.tar.gz",
-					"sha256": "a62384433df872b85315febafdf876faac0fb415c94ed0e919eee04baa811001"
+					"url": "https://github.com/clintbellanger/flare-engine/archive/v1.05.tar.gz",
+					"sha256": "5a491688fdda3a5e9f6e287b6d2f946c8a121e9234b5a3f0f7e049afb179e238"
 				}
 			],
 			"post-install": [
@@ -48,8 +48,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/clintbellanger/flare-game/archive/v1.04.tar.gz",
-					"sha256": "4a4c52d5d6c8c3a1e21e1481ec23f50ec3079c39cff26ea467086baeaf0dd44b"
+					"url": "https://github.com/clintbellanger/flare-game/archive/v1.05.tar.gz",
+					"sha256": "832762ef5f33ce65551a24d5e11e25d8cc97140a11779054e08450dc869569f0"
 				}
 			],
 			"post-install": [
