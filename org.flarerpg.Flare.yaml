@@ -1,0 +1,47 @@
+app-id: org.flarerpg.Flare
+rename-desktop-file: flare.desktop
+rename-icon: flare
+runtime: org.freedesktop.Platform
+runtime-version: '18.08'
+sdk: org.freedesktop.Sdk
+command: flare.sh
+finish-args:
+- --socket=wayland
+- --socket=x11
+- --share=ipc
+- --socket=pulseaudio
+- --device=dri
+build-options:
+  cflags: -O2
+  cxxflags: -O2
+cleanup:
+- /app/games
+- /lib/debug
+- /share/man
+modules:
+
+- name: flare-engine
+  buildsystem: cmake-ninja
+  sources:
+  - type: archive
+    url: https://github.com/clintbellanger/flare-engine/archive/v1.07.tar.gz
+    sha256: f1270ae8f09f6538c0a7036c60d4d22012ec835197b3dce7c3e1541beb22a09c
+  post-install:
+  - mkdir /app/bin
+  - mv /app/games/flare /app/bin
+  - "for size in 16 24 32 48 64 128 256; do\n
+      rsvg-convert -w $size -h $size -f png -o $size.png distribution/flare_logo.svg\n
+      install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/org.flarerpg.Flare.png\n
+    done"
+
+- name: flare-game
+  buildsystem: cmake-ninja
+  sources:
+  - type: archive
+    url: https://github.com/clintbellanger/flare-game/archive/v1.07.tar.gz
+    sha256: 72ef156d2a38b6bd302b98ff652da800f29bc9764222c2bd515f186665acd7fe
+  post-install:
+  - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare" > /app/bin/flare.sh
+  - chmod +x /app/bin/flare.sh
+  - desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop
+  - sed -i 's|org.flarerpg.Flare|org.flarerpg.Flare.desktop|g' /app/share/appdata/org.flarerpg.Flare.appdata.xml
