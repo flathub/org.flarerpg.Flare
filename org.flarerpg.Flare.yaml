@@ -22,8 +22,8 @@ modules:
   buildsystem: cmake-ninja
   sources:
   - type: archive
-    url: https://github.com/flareteam/flare-engine/archive/v1.08.tar.gz
-    sha256: b482be902a68628f75391d9d2376c71b86f7709d077ad4503d15a3ea475f617c
+    url: https://github.com/flareteam/flare-engine/archive/v1.09.tar.gz
+    sha256: 0142a3462bc1c919b9779b09c35d3394af18f1d422ed98ca1949046b9f3a25ab
   post-install:
   - mkdir /app/bin
   - mv /app/games/flare /app/bin
@@ -36,8 +36,8 @@ modules:
   buildsystem: cmake-ninja
   sources:
   - type: archive
-    url: https://github.com/flareteam/flare-game/archive/v1.08.tar.gz
-    sha256: 425e1b8c85f53a666139051ffc97b3fec3811f3c15bbc353795b41dc609585a8
+    url: https://github.com/flareteam/flare-game/archive/v1.09.tar.gz
+    sha256: 5c2235c1fcb181d07cd048d422b8c5a07840de09eeddbf90bc0e5ec177de1ebd
   post-install:
   - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare" > /app/bin/flare.sh
   - chmod +x /app/bin/flare.sh
