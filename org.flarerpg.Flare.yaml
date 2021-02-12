@@ -2,7 +2,7 @@ app-id: org.flarerpg.Flare
 rename-desktop-file: flare.desktop
 rename-icon: flare
 runtime: org.freedesktop.Platform
-runtime-version: '18.08'
+runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 finish-args:
@@ -24,6 +24,10 @@ modules:
   - type: archive
     url: https://github.com/flareteam/flare-engine/archive/v1.09.01.tar.gz
     sha256: c6d56c7e379a3757fdb3eb20a2a032199bfaf47325a748cece997a8a21b9e3fc
+    x-checker-data:
+      type: anitya
+      project-id: 21433
+      url-template: https://github.com/flareteam/flare-engine/archive/v$version.tar.gz
   post-install:
   - mkdir /app/bin
   - mv /app/games/flare /app/bin
@@ -38,6 +42,10 @@ modules:
   - type: archive
     url: https://github.com/flareteam/flare-game/archive/v1.09.01.tar.gz
     sha256: 47d48bc049e9f4facc83bc36e0e7d4c8d02e09000af64ebb2d76efc68ff0d004
+    x-checker-data:
+      type: anitya
+      project-id: 21434
+      url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
   post-install:
   - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare" > /app/bin/flare.sh
   - chmod +x /app/bin/flare.sh
