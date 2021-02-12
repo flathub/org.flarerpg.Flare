@@ -14,7 +14,6 @@ finish-args:
 - --device=dri
 cleanup:
 - /app/games
-- /app/lib/debug
 - /app/share/man
 modules:
 
@@ -46,6 +45,8 @@ modules:
       type: anitya
       project-id: 21434
       url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
+  - type: patch
+    path: 0001-Improve-appdata.patch
   post-install:
   - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare" > /app/bin/flare.sh
   - chmod +x /app/bin/flare.sh
