@@ -6,48 +6,48 @@ runtime-version: '20.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 finish-args:
-- --socket=wayland
-- --socket=fallback-x11
-- --socket=x11
-- --share=ipc
-- --socket=pulseaudio
-- --device=dri
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=x11
+  - --share=ipc
+  - --socket=pulseaudio
+  - --device=dri
 cleanup:
-- /app/games
-- /app/share/man
+  - /app/games
+  - /app/share/man
 modules:
 
-- name: flare-engine
-  buildsystem: cmake-ninja
-  sources:
-  - type: archive
-    url: https://github.com/flareteam/flare-engine/archive/v1.09.01.tar.gz
-    sha256: c6d56c7e379a3757fdb3eb20a2a032199bfaf47325a748cece997a8a21b9e3fc
-    x-checker-data:
-      type: anitya
-      project-id: 21433
-      url-template: https://github.com/flareteam/flare-engine/archive/v$version.tar.gz
-  post-install:
-  - mkdir /app/bin
-  - mv /app/games/flare /app/bin
-  - "for size in 16 24 32 48 64 128 256; do\n
-      rsvg-convert -w $size -h $size -f png -o $size.png distribution/flare_logo.svg\n
-      install -Dm644 $size.png /app/share/icons/hicolor/${size}x${size}/apps/org.flarerpg.Flare.png\n
-    done"
+  - name: flare-engine
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/flareteam/flare-engine/archive/v1.11.tar.gz
+        sha256: 035ffd936d9e120dc2eb792779a0b7ff64574d4a29a1124946deaf7946d1059d
+        x-checker-data:
+          type: anitya
+          project-id: 21433
+          url-template: https://github.com/flareteam/flare-engine/archive/v$version.tar.gz
+    post-install:
+      - mkdir /app/bin
+      - mv /app/games/flare /app/bin
+      - "for size in 16 24 32 48 64 128 256; do\n rsvg-convert -w $size -h $size -f\
+        \ png -o $size.png distribution/flare_logo.svg\n install -Dm644 $size.png\
+        \ /app/share/icons/hicolor/${size}x${size}/apps/org.flarerpg.Flare.png\n done"
 
-- name: flare-game
-  buildsystem: cmake-ninja
-  sources:
-  - type: archive
-    url: https://github.com/flareteam/flare-game/archive/v1.09.01.tar.gz
-    sha256: 47d48bc049e9f4facc83bc36e0e7d4c8d02e09000af64ebb2d76efc68ff0d004
-    x-checker-data:
-      type: anitya
-      project-id: 21434
-      url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
-  - type: patch
-    path: 0001-Improve-appdata.patch
-  post-install:
-  - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare" > /app/bin/flare.sh
-  - chmod +x /app/bin/flare.sh
-  - desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop
+  - name: flare-game
+    buildsystem: cmake-ninja
+    sources:
+      - type: archive
+        url: https://github.com/flareteam/flare-game/archive/v1.11.tar.gz
+        sha256: c13231c7dd021252487f6cf117f7f2bb24bbda40af0a2b2902d72b5e2d4c242a
+        x-checker-data:
+          type: anitya
+          project-id: 21434
+          url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
+      - type: patch
+        path: 0001-Improve-appdata.patch
+    post-install:
+      - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare"
+        > /app/bin/flare.sh
+      - chmod +x /app/bin/flare.sh
+      - desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop
