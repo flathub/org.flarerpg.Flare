@@ -27,6 +27,7 @@ modules:
           type: anitya
           project-id: 21433
           url-template: https://github.com/flareteam/flare-engine/archive/v$version.tar.gz
+          stable-only: true
     post-install:
       - mkdir /app/bin
       - mv /app/games/flare /app/bin
@@ -44,10 +45,11 @@ modules:
           type: anitya
           project-id: 21434
           url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
+          stable-only: true
       - type: patch
         path: 0001-Improve-appdata.patch
     post-install:
-      - echo "flare --mods=fantasycore,empyrean_campaign --data-path=/app/share/games/flare"
+      - echo "flare --data-path=/app/share/games/flare"
         > /app/bin/flare.sh
       - chmod +x /app/bin/flare.sh
       - desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop
