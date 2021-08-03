@@ -21,8 +21,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.11.tar.gz
-        sha256: 035ffd936d9e120dc2eb792779a0b7ff64574d4a29a1124946deaf7946d1059d
+        url: https://github.com/flareteam/flare-engine/archive/v1.12.tar.gz
+        sha256: 287a08532972fa3ac56ce7cb213d21be8be35b529339f61d4eeadbd501c78a8e
         x-checker-data:
           type: anitya
           project-id: 21433
@@ -39,8 +39,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-game/archive/v1.11.tar.gz
-        sha256: c13231c7dd021252487f6cf117f7f2bb24bbda40af0a2b2902d72b5e2d4c242a
+        url: https://github.com/flareteam/flare-game/archive/v1.12.tar.gz
+        sha256: 19a909f2c6e0868baae823bb491e8840d5fb3e0454f00201de8da119772e5160
         x-checker-data:
           type: anitya
           project-id: 21434
@@ -49,7 +49,6 @@ modules:
       - type: patch
         path: 0001-Improve-appdata.patch
     post-install:
-      - echo "flare --data-path=/app/share/games/flare"
-        > /app/bin/flare.sh
+      - echo "flare --data-path=/app/share/games/flare" > /app/bin/flare.sh
       - chmod +x /app/bin/flare.sh
       - desktop-file-edit --set-key=Exec --set-value=flare.sh /app/share/applications/flare.desktop
