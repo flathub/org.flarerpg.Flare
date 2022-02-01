@@ -22,7 +22,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-engine/archive/v1.13.tar.gz
-        sha256: c8e572a3ff71e4bbfad284dbd2a60f0434fa5ebd0d7d0d58a096eb7a0b6b3414
+        sha256: 5a4094437bbaf043a318ccf9cd4ac42bc642340ac65cc2461e6c45f6c9bacdea
         x-checker-data:
           type: anitya
           project-id: 21433
@@ -40,7 +40,7 @@ modules:
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-game/archive/v1.13.tar.gz
-        sha256: a0b8d8c6bf25fc7995d4be81fa5c13f5567354717235e8227b1881e81aee64ed
+        sha256: 39366e3cd20e22c818d088051a2e2ef0c31e63d1cefea64b92b58fa6a98993b0
         x-checker-data:
           type: anitya
           project-id: 21434
