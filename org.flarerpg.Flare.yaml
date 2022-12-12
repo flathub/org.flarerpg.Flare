@@ -20,8 +20,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.13.04.tar.gz
-        sha256: 13dcfe562b98a5456ba5ba3fdffb457b8d92bfe8e332edfbe025353dbd0eb043
+        url: https://github.com/flareteam/flare-engine/archive/v1.14.tar.gz
+        sha256: 2c1bafeaa5ac26c10449bfcb7151b06e8a22547aa7364d2a39bbcb135aa50a09
         x-checker-data:
           type: anitya
           project-id: 21433
@@ -38,8 +38,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-game/archive/v1.13.04.tar.gz
-        sha256: bbb278516c46e96ecc9b9470af3c37348ccb5dc61d33bd91c4823c090ccf2c78
+        url: https://github.com/flareteam/flare-game/archive/v1.14.tar.gz
+        sha256: 65758462070aa88842084f8ee69083d8226e93cfbf83481663276d8307494b8e
         x-checker-data:
           type: anitya
           project-id: 21434
