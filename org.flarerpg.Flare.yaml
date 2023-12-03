@@ -2,7 +2,7 @@ app-id: org.flarerpg.Flare
 rename-desktop-file: flare.desktop
 rename-icon: flare
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 finish-args:
