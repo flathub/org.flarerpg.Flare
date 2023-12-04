@@ -20,8 +20,8 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.14-android.tar.gz
-        sha256: c10ed5567d62f0b951cf4b4e0720035d7878bee441777308cca161635b210950
+        url: https://github.com/flareteam/flare-engine/archive/v1.14.tar.gz
+        sha256: 2c1bafeaa5ac26c10449bfcb7151b06e8a22547aa7364d2a39bbcb135aa50a09
         x-checker-data:
           type: anitya
           project-id: 21433
