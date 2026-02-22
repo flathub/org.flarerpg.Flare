@@ -2,7 +2,7 @@ app-id: org.flarerpg.Flare
 rename-desktop-file: flare.desktop
 rename-icon: flare
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 finish-args:
@@ -15,9 +15,42 @@ cleanup:
   - /app/games
   - /app/share/man
 modules:
+  - name: SDL2_image
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DSDL2IMAGE_DEPS_SHARED=OFF
+      - -DSDL2IMAGE_STRICT=ON
+    sources:
+      - type: archive
+        url: https://github.com/libsdl-org/SDL_image/releases/download/release-2.8.8/SDL2_image-2.8.8.tar.gz
+        sha256: 2213b56fdaff2220d0e38c8e420cbe1a83c87374190cba8c70af2156097ce30a
+
+  - name: SDL2_mixer
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DSDL2MIXER_MOD=OFF
+      - -DSDL2MIXER_MIDI=OFF
+    sources:
+      - type: archive
+        url: https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.1/SDL2_mixer-2.8.1.tar.gz
+        sha256: cb760211b056bfe44f4a1e180cc7cb201137e4d1572f2002cc1be728efd22660
+
+  - name: SDL2_ttf
+    buildsystem: cmake-ninja
+    builddir: true
+    config-opts:
+      - -DSDL2TTF_HARFBUZZ=ON
+    sources:
+      - type: archive
+        url: https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.24.0/SDL2_ttf-2.24.0.tar.gz
+        sha256: 0b2bf1e7b6568adbdbc9bb924643f79d9dedafe061fa1ed687d1d9ac4e453bfd
 
   - name: flare-engine
     buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-engine/archive/v1.14.tar.gz
@@ -36,6 +69,8 @@ modules:
 
   - name: flare-game
     buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-game/archive/v1.14.tar.gz
