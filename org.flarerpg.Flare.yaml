@@ -18,17 +18,6 @@ modules:
   - "shared-modules/SDL2/SDL2_image.json"
   - "shared-modules/SDL2/SDL2_ttf.json"
 
-  - name: SDL2_mixer
-    buildsystem: cmake-ninja
-    builddir: true
-    config-opts:
-      - -DSDL2MIXER_MOD=OFF
-      - -DSDL2MIXER_MIDI=OFF
-    sources:
-      - type: archive
-        url: https://github.com/libsdl-org/SDL_mixer/releases/download/release-2.8.1/SDL2_mixer-2.8.1.tar.gz
-        sha256: cb760211b056bfe44f4a1e180cc7cb201137e4d1572f2002cc1be728efd22660
-
   - name: flare-engine
     buildsystem: cmake-ninja
     config-opts:
