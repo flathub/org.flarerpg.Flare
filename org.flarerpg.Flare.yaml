@@ -51,6 +51,8 @@ modules:
           project-id: 21434
           url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
           stable-only: true
+      - type: patch
+        path: appdata_launchable_fix.patch
     post-install:
       - echo "flare --data-path=/app/share/games/flare" > /app/bin/flare.sh
       - chmod +x /app/bin/flare.sh
