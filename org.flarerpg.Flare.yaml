@@ -2,7 +2,7 @@ app-id: org.flarerpg.Flare
 rename-desktop-file: flare.desktop
 rename-icon: flare
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 finish-args:
@@ -15,9 +15,13 @@ cleanup:
   - /app/games
   - /app/share/man
 modules:
+  - "shared-modules/SDL2/SDL2_image.json"
+  - "shared-modules/SDL2/SDL2_ttf.json"
 
   - name: flare-engine
     buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-engine/archive/v1.14.tar.gz
@@ -36,6 +40,8 @@ modules:
 
   - name: flare-game
     buildsystem: cmake-ninja
+    config-opts:
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-game/archive/v1.14.tar.gz
@@ -45,6 +51,8 @@ modules:
           project-id: 21434
           url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
           stable-only: true
+      - type: patch
+        path: appdata_launchable_fix.patch
     post-install:
       - echo "flare --data-path=/app/share/games/flare" > /app/bin/flare.sh
       - chmod +x /app/bin/flare.sh
