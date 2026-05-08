@@ -21,11 +21,11 @@ modules:
   - name: flare-engine
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.10"
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.14.tar.gz
-        sha256: 2c1bafeaa5ac26c10449bfcb7151b06e8a22547aa7364d2a39bbcb135aa50a09
+        url: https://github.com/flareteam/flare-engine/archive/v1.15.tar.gz
+        sha256: 642db16111487bf8a3fb7ebadcfc635909c7eaf91df7723ee22fae1caac9fe93
         x-checker-data:
           type: anitya
           project-id: 21433
@@ -41,18 +41,16 @@ modules:
   - name: flare-game
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
+      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.10"
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-game/archive/v1.14.tar.gz
-        sha256: 65758462070aa88842084f8ee69083d8226e93cfbf83481663276d8307494b8e
+        url: https://github.com/flareteam/flare-game/archive/v1.15.tar.gz
+        sha256: b6b2e7037dae416c29d2d55f8275491ed9edec690194fc2165a5429582a2518c
         x-checker-data:
           type: anitya
           project-id: 21434
           url-template: https://github.com/flareteam/flare-game/archive/v$version.tar.gz
           stable-only: true
-      - type: patch
-        path: appdata_launchable_fix.patch
     post-install:
       - echo "flare --data-path=/app/share/games/flare" > /app/bin/flare.sh
       - chmod +x /app/bin/flare.sh
