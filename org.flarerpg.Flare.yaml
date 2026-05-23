@@ -15,17 +15,17 @@ cleanup:
   - /app/games
   - /app/share/man
 modules:
-  - "shared-modules/SDL2/SDL2_image.json"
-  - "shared-modules/SDL2/SDL2_ttf.json"
+  - shared-modules/SDL2/SDL2_image.json
+  - shared-modules/SDL2/SDL2_ttf.json
 
   - name: flare-engine
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.10"
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.10
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.15.tar.gz
-        sha256: 642db16111487bf8a3fb7ebadcfc635909c7eaf91df7723ee22fae1caac9fe93
+        url: https://github.com/flareteam/flare-engine/archive/v1.15-fdroid.tar.gz
+        sha256: 4b973e7e00e090ac74aacdc0c9eebbdfc3bdbec7ae1f5b7fb897192083ea2c32
         x-checker-data:
           type: anitya
           project-id: 21433
@@ -41,7 +41,7 @@ modules:
   - name: flare-game
     buildsystem: cmake-ninja
     config-opts:
-      - "-DCMAKE_POLICY_VERSION_MINIMUM=3.10"
+      - -DCMAKE_POLICY_VERSION_MINIMUM=3.10
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-game/archive/v1.15.tar.gz
