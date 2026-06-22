@@ -4,7 +4,7 @@ runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: flare.sh
 rename-desktop-file: flare.desktop
-rename-icon: flare_logo
+rename-icon: flare_logo_icon
 finish-args:
   - --socket=wayland
   - --socket=fallback-x11
@@ -25,7 +25,7 @@ modules:
     post-install:
       - mkdir /app/bin
       - mv /app/games/flare /app/bin
-      - install -Dm644 distribution/flare_logo.svg -t /app/share/icons/hicolor/scalable/apps/
+      - install -Dm644 distribution/flare_logo_icon.svg -t /app/share/icons/hicolor/scalable/apps/
     sources:
       - type: archive
         url: https://github.com/flareteam/flare-engine/archive/v1.15.tar.gz
