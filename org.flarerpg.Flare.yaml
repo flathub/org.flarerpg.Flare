@@ -28,8 +28,8 @@ modules:
       - install -Dm644 distribution/flare_logo_icon.svg -t /app/share/icons/hicolor/scalable/apps/
     sources:
       - type: archive
-        url: https://github.com/flareteam/flare-engine/archive/v1.15.tar.gz
-        sha256: 642db16111487bf8a3fb7ebadcfc635909c7eaf91df7723ee22fae1caac9fe93
+        url: https://github.com/flareteam/flare-engine/archive/v1.15-fdroid.tar.gz
+        sha256: 4b973e7e00e090ac74aacdc0c9eebbdfc3bdbec7ae1f5b7fb897192083ea2c32
         x-checker-data:
           type: anitya
           project-id: 21433
